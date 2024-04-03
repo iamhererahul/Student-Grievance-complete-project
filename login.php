@@ -1,9 +1,11 @@
 <?php
-// Database connection parameters
-$servername = "localhost"; // Replace with your host name
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "connect"; // Replace with your database name
+session_start(); // Start the session
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "connect";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,31 +15,25 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $college_uid = $_POST['college_uid'];
-    $password = $_POST['password'];
-    
-    // Query to check if user exists with the provided credentials
-    $sql = "SELECT * FROM users WHERE college_uid = '$college_uid'";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        // Verify password
-        if (password_verify($password, $row['password'])) {
-            // Password is correct, redirect to next page
-            header("Location: #");
-            exit;
-        } else {
-            echo "Invalid username or password.";
-        }
-    } else {
-        echo "User not found.";
-    }
+// Retrieve form data
+$college_uid = $_POST['college_uid'];
+$password = $_POST['password'];
+
+// SQL query to check if user exists
+$sql = "SELECT * FROM students WHERE college_uid = '$college_uid' AND password = '$password'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // User exists, redirect to the dashboard or another page
+    $_SESSION['college_uid'] = $college_uid; // Store user's college UID in session
+    header("Location: dashboard.php");
+    exit();
+} else {
+    // User does not exist or invalid credentials, redirect back to login page with error message
+    $_SESSION['login_error'] = "Invalid college UID or password";
+    header("Location: student_login.html");
+    exit();
 }
 
-// Close the database connection
 $conn->close();
 ?>

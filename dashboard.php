@@ -3,66 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .profile-info {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            margin: 0;
+            margin-top: 40px;
+        }
+
+        .grievances {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grievance {
+            margin-bottom: 20px;
+        }
+
+        .grievance p {
+            margin: 0;
+        }
+        .container button{
+            padding:8px;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            margin-top:30px;
+
+        }
+        .container button a{
+            text-decoration:none;
+            color:black;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-       <div class="con1">
-         <h2>Admin info</h2>
-         <div class="user-info">
-            <?php
-            // Connect to the database
-            $conn = new mysqli('localhost', 'root', '', 'connect');
+        <div class="sidebar">
+            <div class="profile-info">
+                <!-- Fetch and display user information -->
+                <?php
+                // Database connection
+                $conn = new mysqli('localhost', 'root', '', 'connect');
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Fetch user information from the database
-            $sql_user = "SELECT * FROM users WHERE id = 1"; // Assuming user ID is 1
-            $result_user = $conn->query($sql_user);
-
-            if ($result_user->num_rows > 0) {
-                // Output user information
-                $row_user = $result_user->fetch_assoc();
-                echo "<p><strong>Name:</strong> " . $row_user["username"] . "</p>";
-                echo "<p><strong>College UID:</strong> " . $row_user["college_uid"] . "</p>";
-                echo "<p><strong>Email:</strong> " . $row_user["email"] . "</p>";
-                
-            } else {
-                echo "User information not found.";
-            }
-            ?>
-        </div>
-       </div>
-        
-        <div class="con2">
-        <h2>Grievances</h2>
-        <div class="grievances">
-            <?php
-            // Fetch grievances from the database
-            $sql_grievances = "SELECT * FROM grievances";
-            $result_grievances = $conn->query($sql_grievances);
-
-            if ($result_grievances->num_rows > 0) {
-                // Output grievances
-                while($row_grievance = $result_grievances->fetch_assoc()) {
-                    echo "<div class='grievance'>";
-                    echo "<p><strong>Name:</strong> " . $row_grievance["name"] . "</p>";
-                    echo "<p><strong>Type:</strong> " . $row_grievance["type"] . "</p>";
-                    echo "<p><strong>Details:</strong> " . $row_grievance["details"] . "</p>";
-                    echo "</div>";
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-            } else {
-                echo "No grievances found.";
-            }
 
-            // Close database connection
-            $conn->close();
-            ?>
+                // Fetch student information from the database
+                $sql = "SELECT * FROM students WHERE id = 1"; // Assuming user ID is 1
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Output student information
+                    $row = $result->fetch_assoc();
+                    echo "<img src='uploads/" . $row["profile_photo"] . "' alt='Profile Photo'>";
+                    echo "<p>Name: " . $row["name"] . "</p>";
+                    echo "<p>College UID: " . $row["college_uid"] . "</p>";
+                    echo "<p>Email: " . $row["email"] . "</p>";
+                    echo "<p>Course: " . $row["course"] . "</p>";
+                    echo "<p>Branch: " . $row["branch"] . "</p>";
+                    echo "<p>Phone Number: " . $row["phone_number"] . "</p>";
+                    echo "<p>Address: " . $row["address"] . "</p>";
+                } else {
+                    echo "Student information not found.";
+                }
+
+                // Close connection
+                $conn->close();
+                ?>
+                <button><a href="submit.html">Submit Grievance</a></button>
+            </div>
         </div>
+        <div class="content">
+            <h2>Recent Grievances</h2>
+            <div class="grievances">
+                <!-- Fetch and display recent grievances -->
+                <?php
+                // Database connection
+                $conn = new mysqli('localhost', 'root', '', 'connect');
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Fetch recent grievances from the database
+                $sql = "SELECT * FROM grievances ORDER BY id DESC LIMIT 5"; // Assuming you want to display the latest 5 grievances
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Output recent grievances
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='grievance'>";
+                        echo "<p><strong>Name:</strong> " . $row["name"] . "</p>";
+                        echo "<p><strong>Type:</strong> " . $row["type"] . "</p>";
+                        echo "<p><strong>Details:</strong> " . $row["details"] . "</p>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "No recent grievances found.";
+                }
+
+                // Close connection
+                $conn->close();
+                ?>
+            </div>
         </div>
     </div>
 </body>

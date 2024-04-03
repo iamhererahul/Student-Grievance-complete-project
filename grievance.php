@@ -20,11 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the prepared statement
     if ($stmt->execute()) {
-        echo "Grievance submitted successfully.";
+        // Redirect to a new page
+        header("Location: dashboard.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
-
     // Close statement and database connection
     $stmt->close();
     $conn->close();

@@ -1,44 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="register.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        height: 100vh;
+        width: 100%; /* Increased width */
+        margin: 0 auto; /* Centering the container */
+      }
+
+      .container .con1 {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        height: auto;
+        border: 2px solid #ccc; /* Border style */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); /* Box shadow effect */
+        background-color: #fff; /* Background color */
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .form-column {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .form-column label {
+        display: block;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .form-column input[type="text"],
+      .form-column input[type="email"],
+      .form-column input[type="tel"],
+      .form-column select,
+      .form-column textarea,
+      .form-column input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .form-row .input-box {
+        width: calc(50% - 10px);
+      }
+
+      .form-row .input-box label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-row .input-box input[type="text"],
+      .form-row .input-box select,
+      .form-row .input-box textarea,
+      .form-row .input-box input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-submit {
+        width: 100%;
+        text-align: center;
+      }
+
+      .form-submit button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+      }
+
+      .form-submit button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <div class="curved-shadow"></div>  
-        <div class="curved-shadow2"></div>        
-           <div class="form-box login">
-           <form action="register.php" method="post">
-               <div class="input-box">
-                 <input type="text" name="username" required>
-                 <label>Username</label>
-               </div>
-               <div class="input-box">
-                <input type="text" name="college_uid" required>
-                <label>College UID</label>
+      <form action="register.php" method="POST" enctype="multipart/form-data">
+        <div class="con1">
+          <div class="form-column">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+            <label for="college-uid">College UID</label>
+            <input
+              type="text"
+              id="college-uid"
+              name="college-uid"
+              placeholder="Enter your college UID"
+              required
+            />
+            <label for="course">Course</label>
+            <select id="course" name="course" required>
+              <option value="">Select your course</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="B.Sc">B.Sc</option>
+              <option value="M.Sc">M.Sc</option>
+              <!-- Add more options if needed -->
+            </select>
+            <label for="phone-number">Phone Number</label>
+            <input
+              type="tel"
+              id="phone-number"
+              name="phone-number"
+              placeholder="Enter your phone number"
+              pattern="[0-9]{10}"
+              required
+            />
+          </div>
+          <div class="form-column">
+            <div class="form-row">
+              <div class="input-box">
+                <label for="branch">Branch</label>
+                <select id="branch" name="branch" required>
+                  <option value="">Select your branch</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Electrical Engineering">
+                    Electrical Engineering
+                  </option>
+                  <option value="Mechanical Engineering">
+                    Mechanical Engineering
+                  </option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                  <!-- Add more options if needed -->
+                </select>
               </div>
-               <div class="input-box">
-                <input type="email" name="email" required>
-                <label>Email ID</label>
+              <div class="input-box">
+                <label for="address">Address</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  placeholder="Enter your address"
+                  required
+                ></textarea>
               </div>
-               <div class="input-box">
-                   <input type="password" name="password" required>
-                   <label>Password</label>
-                 </div>
-                 <div class="input-box">
-                  <input type="password" name="confirm_password" required>
-                  <label>Confirm Password</label>
-                </div>
-                 <div class="input-box"> 
-                   <center><button type="submit" class="signin-button">SIGN IN</button></center>
-                </div>
-           </form>
-           </div>
-           <div class="info-content login">
-            <h2>REGISTER YOURSELF</h2>
-         </div>
-</body>
+            </div>
+            <div class="form-row">
+              <div class="input-box">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="input-box">
+                <label for="confirm-password">Confirm Password</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="Confirm your password"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="profile-photo">Upload Profile Photo</label>
+                <input
+                  type="file"
+                  id="profile-photo"
+                  name="profile-photo"
+                  accept="image/*"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
