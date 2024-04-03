@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Grievance Redressal System</title>
+    <link rel="stylesheet" href="sub.css" />
+  </head>
+  <body>
+    <h2>Submit a Grievance</h2>
+    <form id="grievance-form" method="POST" action="grievance.php">
+      <label for="student-name">Name</label>
+      <input
+        type="text"
+        id="student-name"
+        name="student-name"
+        placeholder="Enter your name"
+        required
+      />
+      <br /><br />
+      <label for="grievance-type">Grievance Type</label>
+      <select id="grievance-type" name="grievance-type" required>
+        <option value="Academic">Academic</option>
+        <option value="Administrative">Administrative</option>
+        <option value="Technology and IT Support">
+          Technology and IT Support
+        </option>
+        <option value="Campus Facilities and Services">
+          Campus Facilities and Services
+        </option>
+        <option value="Other">Other</option>
+      </select>
+      <br /><br />
+      <label for="grievance-details">Details</label>
+      <textarea
+        id="grievance-details"
+        name="grievance-details"
+        placeholder="Write your grievance"
+        required
+      ></textarea>
+      <br /><br />
+      <center><button type="submit">Submit Grievance</button></center>
+    </form>
+  </body>
+</html>

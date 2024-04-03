@@ -1,0 +1,41 @@
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container .con1 {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  width: 300px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.user-info p {
+  margin-bottom: 10px;
+}
+
+.grievance {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.grievance p {
+  margin: 5px 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}

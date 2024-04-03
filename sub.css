@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+        background-image: url('images/black.jpg'); /* Replace 'background.jpg' with your image file path */
+        background-size: cover; /* Adjust the sizing as needed */
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Fixed background image */
+      
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 450px;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+label {
+    display: block;
+    margin: top 0;;
+    color: white;
+    background-color: transparent;
+}
+
+input,
+select,
+textarea {
+    width: 85%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#grievance-list {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.grievance-entry {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+}
+/* Reset default margin and padding for the whole page */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header and navigation bar */
+header {
+    background-color:black;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav .nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav .nav-links li {
+    margin-right: 20px;
+}
+
+.nav .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style the main content */
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Center-align the form and its components */
+#grievance-form {
+    width: 500px;
+    height: 100%;
+    background: black;
+    border: lightblue;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    
+    
+    
+}
+
+/* Center-align the grievance list */
+#grievance-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Center-align the login container */
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: flex;
+    margin-right: 20px;
+    align-items: end;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    display: inline;
+    margin-right: 20px;
+    align-items: center;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+    align-items: center;
+  }
+  .nav-links li:last-child a {
+    background-color: transparent; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s; /* Smooth hover effect */
+    position: absolute;
+  top: 10px; /* Adjust the top value as needed */
+  right: 10px; /* Adjust the right value as needed */
+}
+.nav-links li:last-child a:hover {
+    background-color: #cc0000; /* Background color on hover */
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    display: inline;
+    margin-right: 20px;
+    align-items: center;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+    align-items: center;
+  }
+  /* Select the Sign Out link */
+li:last-child a {
+    position: absolute;
+    top: 10px; /* Adjust the top value as needed */
+    right: 10px; /* Adjust the right value as needed */
+  }
+  .form-box.login{
+    left: 0;
+    padding: 0 40px;
+}
+.form-box.login .animation{
+   transform: translateY(0%);
+   transition: .7s;
+   opacity: 1;
+   transition-delay: calc(.1s * var(--D));
+}
+.container.active .form-box.login .animation{
+   transform: translateY(-120%);
+   opacity: 0;
+}
+.form-box.Register{
+   right: 0;
+   padding: 0 60px;
+}
+.form-box.Register .animation{
+   transform: translateY(0%);
+   transition: .7s ease;
+   opacity: 0;
+   transition-delay: calc(.1s * var(--D));
+}
+.container.active .form-box.Register .animation{
+   transform: translateY(-120%);
+   opacity: 0;
+}
+.form-box h2{
+   font-size: 32px;
+   text-align: center;
+}
+.form-box .input-box{
+   position: relative;
+   width: 100%;
+   height: 50px;
+   margin-top: 20px;
+}
+.input-box input{
+   width: 100%;
+   height: 100%;
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   color: #fff;
+   font-weight: 600;
+   border-bottom: 2px solid #fff;
+   padding-right: 23px;
+   transition: .5s;
+}
+.input-box input:focus,
+.input-box input:valid{
+   border-bottom: 2px solid #ff2770;
+}
+.input-box label{
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   font-size: 16px;
+   color: #fff;
+   transition: .5s;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+   top: -5px;
+   color: #ff2770;
+}
+.input-box i{
+   position: absolute;
+   top: 50%;
+   right: 0;
+   font-size: 18px;
+   transform: translateY(-50%);
+   transition: .5s;
+}
+.input-box input:focus ~ i,
+.input-box input:valid ~ i{
+   color: #ff2770;
+}
+
+.container .form-box{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .footer {
+    background-color: black;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }
+  .footer .footer_cols{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2rem;  
+    padding-left: 50px;  
+    color: white;
+}
+.about {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+  
