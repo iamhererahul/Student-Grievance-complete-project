@@ -11,36 +11,34 @@
         <div class="curved-shadow"></div>  
         <div class="curved-shadow2"></div>        
            <div class="form-box login">
-           <form action="#">
+           <form action="register.php" method="post">
                <div class="input-box">
-                 <input type="text" required>
-                 <label for="">Username</label>
+                 <input type="text" name="username" required>
+                 <label>Username</label>
                </div>
                <div class="input-box">
-                <input type="text" required>
-                <label for="">College UID</label>
+                <input type="text" name="college_uid" required>
+                <label>College UID</label>
               </div>
                <div class="input-box">
-                <input type="text" required>
-                <label for="">email id</label>
+                <input type="email" name="email" required>
+                <label>Email ID</label>
               </div>
                <div class="input-box">
-                   <input type="text" required>
-                   <label for="">Password</label>
+                   <input type="password" name="password" required>
+                   <label>Password</label>
                  </div>
                  <div class="input-box">
-                  <input type="text" required>
-                  <label for="">confirm password</label>
+                  <input type="password" name="confirm_password" required>
+                  <label>Confirm Password</label>
                 </div>
                  <div class="input-box"> 
-                   <center><a href="home.html" class="signin-button">SIGN IN</a></center>
+                   <center><button type="submit" class="signin-button">SIGN IN</button></center>
                 </div>
            </form>
            </div>
            <div class="info-content login">
             <h2>REGISTER YOURSELF</h2>
-
          </div>
-           <script src="reg.js"></script>
 </body>
 </html>
